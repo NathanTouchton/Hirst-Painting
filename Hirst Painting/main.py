@@ -1,24 +1,21 @@
 from turtle import Turtle, Screen
-from random import randint
+from random import randint, choice
 
 turtle = Turtle()
 turtle.shape("classic")
-# turtle.color("purple3")
 shape_sides = 3
 screen = Screen()
 screen.colormode(255)
+turtle.pensize(10)
+turtle.speed(6)
 
-for _ in range(8):
+HEADINGS = [0, 90, 180, 270]
+
+for _ in range(50):
     turtle.color(randint(0, 255),
           randint(0, 255),
           randint(0, 255))
-    degrees = 360 / shape_sides
-    times_to_repeat = shape_sides
-    while times_to_repeat > 0:
-        turtle.forward(100)
-        turtle.right(degrees)
-        times_to_repeat -= 1
-    shape_sides += 1
-
+    turtle.seth(choice(HEADINGS))
+    turtle.forward(100)
 
 screen.exitonclick()
