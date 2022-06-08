@@ -9,16 +9,39 @@ color_list = [(210, 153, 64), (39, 86, 172), (103, 160, 209), (229, 199, 57), (1
 
 # 10 x 10 rows
 # size 20 dots
-# separated by 20
+# separated by 40
 screen = Screen()
-turle = Turtle()
-turle.hideturtle()
-turle.speed(3)
-turle.pensize(20)
+turtle = Turtle()
+# turtle.hideturtle()
+turtle.speed(1)
 screen.colormode(255)
+turtle.up()
+ROW_NUMBER = 1
 
 def random_color():
     """Picks a random color from the list."""
-    turle.color(choice(color_list))
+    turtle.color(choice(color_list))
+
+def row_of_dots(number_of_dots):
+    """Sends the turtle forward to draw 10 dots."""
+    times_to_repeat = number_of_dots
+    random_color()
+    turtle.dot(20)
+    times_to_repeat -= 1
+    if times_to_repeat > 0:
+        turtle.forward(40)
+        row_of_dots(times_to_repeat)
+
+while ROW_NUMBER <= 10:
+    row_of_dots(10)
+    if ROW_NUMBER % 2 != 0:
+        turtle.seth(90)
+        turtle.forward(40)
+        turtle.left(90)
+    elif ROW_NUMBER % 2 == 0:
+        turtle.seth(90)
+        turtle.forward(40)
+        turtle.right(90)
+    ROW_NUMBER +=1
 
 screen.exitonclick()
