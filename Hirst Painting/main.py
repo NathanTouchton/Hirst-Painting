@@ -12,11 +12,14 @@ color_list = [(210, 153, 64), (39, 86, 172), (103, 160, 209), (229, 199, 57), (1
 # separated by 40
 screen = Screen()
 turtle = Turtle()
-# turtle.hideturtle()
-turtle.speed(1)
+turtle.hideturtle()
+turtle.speed(0)
 screen.colormode(255)
 turtle.up()
 ROW_NUMBER = 1
+
+turtle.goto(-200, -200)
+turtle.speed(6)
 
 def random_color():
     """Picks a random color from the list."""
